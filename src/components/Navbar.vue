@@ -22,6 +22,11 @@
 
 <script>
 export default {
+
+    created(){
+        this.getThemeSetting()
+    },
+
   props: ["pages", "navLinkClick", "activePage"],
 
   data() {
@@ -32,12 +37,27 @@ export default {
 
   methods: {
     changeTheme() {
+           
       if (this.theme === "light") {
         this.theme = "dark";
+        this.storeTheme()
+        
       } else {
         this.theme = "light";
+        this.storeTheme()
       }
     },
+
+    storeTheme(){
+        localStorage.setItem('theme', this.theme)
+    },
+
+    getThemeSetting(){
+       let theme     =  localStorage.getItem('theme')
+       if(theme){
+        this.theme = theme
+       }
+    }
   },
 };
 </script>

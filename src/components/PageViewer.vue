@@ -2,6 +2,7 @@
   <div class="conatiner" id="contentWrapper">
     <h1 class="main-heading">{{ page.title }}</h1>
     <p>{{ page.content }}</p>
+   
   </div>
 </template>
 
