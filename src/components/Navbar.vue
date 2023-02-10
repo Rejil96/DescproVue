@@ -2,7 +2,7 @@
   <nav :class="`navbar navbar-expand-lg navbar-${theme} bg-${theme}`" id="custom-class">
     <a class="navbar-brand" href="#" id="logoName">Vue Js</a>
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li v-for="(page, index) in pages" class="nav-item" :key="index">
+      <li v-for="(page, index) in publishedPages" class="nav-item" :key="index">
         <a
           class="nav-link"
           id="navLinkText"
@@ -26,6 +26,12 @@ export default {
     created(){
         this.getThemeSetting()
     },
+
+  computed: {
+    publishedPages(){
+      return this.pages.filter(p => p.published)
+    }
+  },
 
   props: ["pages", "navLinkClick", "activePage"],
 
@@ -64,7 +70,7 @@ export default {
 
 <style>
 #custom-class {
-  padding: 0px 20px !important;
+  padding: 0px 40px !important;
   height: 80px;
 }
 
@@ -77,6 +83,7 @@ export default {
   font-size: 24px;
   font-weight: 600;
   color: #1d861d;
+ 
   font-family: sans-serif;
   font-style: italic;
   background-color: yellow;

@@ -2,8 +2,8 @@
   <div class="conatiner pt-3" id="contentWrapper">
     <h1 class="main-heading" v-if="activePage !== 0">{{ page.title }}</h1>
     <p v-if="activePage !== 0">{{ page.content }}</p>
-    <p class="h1" v-if="activePage === 0" id="formHeading">Create Page</p>
-    <CreatePage :pageCreated = "pageCreated" :activePage= "activePage"></CreatePage>
+    <p class="h1" v-if="activePage === 0" id="formHeading">Create Pages</p>
+    <CreatePage v-if="activePage === 0" :pageCreated = "pageCreated" :activePage= "activePage"></CreatePage>
   </div>
 </template>
 
@@ -46,6 +46,6 @@ export default {
   margin-top: -240px !important;
   align-self: flex-start;
   margin-bottom: 60px;
-  margin-left: 120px;
+  margin-left: 310px;
 }
 </style>

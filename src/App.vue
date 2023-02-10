@@ -28,16 +28,19 @@ export default {
           link: { text: "Home", url: "index.html" },
           title: "Home Page",
           content: "This is the home content",
+          published: true,
         },
         {
           link: { text: "About", url: "about.html" },
           title: "About Page",
           content: "This is the about content",
+          published: true,
         },
         {
           link: { text: "Contact", url: "contact.html" },
           title: "Contact Page",
           content: "This is the contact content",
+          published: true,
         },
       ],
     };

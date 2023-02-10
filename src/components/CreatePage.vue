@@ -1,5 +1,5 @@
 <template>
-  <div class="container mb-3" v-if="activePage === 0">
+  <div class="container mb-3">
     <form action="">
       <div class="row">
         <div class="col">
@@ -42,6 +42,17 @@
               v-model="linkUrl"
             />
           </div>
+          <div class="mb-3">
+            <div class="form-check">      
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="gridCheck1"
+               v-model="published"
+              />
+              <label class="form-check-label" for="gridCheck1">Published</label>
+            </div>
+          </div>
         </div>
       </div>
       <div class="mb-3">
@@ -53,7 +64,7 @@
 
 <script>
 export default {
-  props: ["pageCreated", "activePage"],
+  props: ["pageCreated"],
 
   computed: {
     isFormValid(){
@@ -67,6 +78,7 @@ export default {
       content: "",
       linkText: "",
       linkUrl: "",
+      published: true
     };
   },
 
@@ -83,10 +95,23 @@ export default {
         },
         title: this.pageTitle,
         content: this.content,
+        published: this.published
       });
-    },
 
-    
+      this.linkText = ""
+      this.linkUrl = ""
+      this.pageTitle = ""
+      this.content = ""
+      this.published = true
+    },
   },
+
+  watch: {
+      pageTitle(newTitle, oldTitle){
+        if(this.linkText === oldTitle){
+          this.linkText = newTitle
+        }
+      }
+    }
 };
 </script>
