@@ -1,5 +1,5 @@
 <template>
-  <div class="container mb-3">
+  <div class="container mb-3" id="customCss">
     <form action="">
       <div class="row">
         <div class="col">
@@ -115,3 +115,10 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+#customCss{
+  border-top: 1px solid #e9e9e9;
+  padding-top: 60px;
+}
+</style>

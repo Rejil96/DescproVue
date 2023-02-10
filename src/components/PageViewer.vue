@@ -40,12 +40,13 @@ export default {
   font-size: 48px;
   font-weight: bolder;
   margin-bottom: 60px;
+  
 }
 
 #formHeading{
   margin-top: -240px !important;
   align-self: flex-start;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   margin-left: 310px;
 }
 </style>
