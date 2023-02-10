@@ -22,15 +22,14 @@
 
 <script>
 export default {
-
-    created(){
-        this.getThemeSetting()
-    },
+  created() {
+    this.getThemeSetting();
+  },
 
   computed: {
-    publishedPages(){
-      return this.pages.filter(p => p.published)
-    }
+    publishedPages() {
+      return this.pages.filter((p) => p.published);
+    },
   },
 
   props: ["pages", "navLinkClick", "activePage"],
@@ -43,27 +42,25 @@ export default {
 
   methods: {
     changeTheme() {
-           
       if (this.theme === "light") {
         this.theme = "dark";
-        this.storeTheme()
-        
+        this.storeTheme();
       } else {
         this.theme = "light";
-        this.storeTheme()
+        this.storeTheme();
       }
     },
 
-    storeTheme(){
-        localStorage.setItem('theme', this.theme)
+    storeTheme() {
+      localStorage.setItem("theme", this.theme);
     },
 
-    getThemeSetting(){
-       let theme     =  localStorage.getItem('theme')
-       if(theme){
-        this.theme = theme
-       }
-    }
+    getThemeSetting() {
+      let theme = localStorage.getItem("theme");
+      if (theme) {
+        this.theme = theme;
+      }
+    },
   },
 };
 </script>
@@ -83,7 +80,7 @@ export default {
   font-size: 24px;
   font-weight: 600;
   color: #1d861d;
- 
+
   font-family: sans-serif;
   font-style: italic;
   background-color: yellow;

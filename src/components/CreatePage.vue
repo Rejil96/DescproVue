@@ -43,12 +43,12 @@
             />
           </div>
           <div class="mb-3">
-            <div class="form-check">      
+            <div class="form-check">
               <input
                 type="checkbox"
                 class="form-check-input"
                 id="gridCheck1"
-               v-model="published"
+                v-model="published"
               />
               <label class="form-check-label" for="gridCheck1">Published</label>
             </div>
@@ -56,7 +56,13 @@
         </div>
       </div>
       <div class="mb-3">
-        <button class="btn btn-primary" @click.prevent="submitForm" :disabled="isFormValid">Create Page</button>
+        <button
+          class="btn btn-primary"
+          @click.prevent="submitForm"
+          :disabled="isFormValid"
+        >
+          Create Page
+        </button>
       </div>
     </form>
   </div>
@@ -67,9 +73,9 @@ export default {
   props: ["pageCreated"],
 
   computed: {
-    isFormValid(){
-      return !this.pageTitle || !this.content || !this.linkText || !this.linkUrl
-    }
+    isFormValid() {
+      return !this.pageTitle || !this.content || !this.linkText || !this.linkUrl;
+    },
   },
 
   data() {
@@ -78,7 +84,7 @@ export default {
       content: "",
       linkText: "",
       linkUrl: "",
-      published: true
+      published: true,
     };
   },
 
@@ -95,29 +101,29 @@ export default {
         },
         title: this.pageTitle,
         content: this.content,
-        published: this.published
+        published: this.published,
       });
 
-      this.linkText = ""
-      this.linkUrl = ""
-      this.pageTitle = ""
-      this.content = ""
-      this.published = true
+      this.linkText = "";
+      this.linkUrl = "";
+      this.pageTitle = "";
+      this.content = "";
+      this.published = true;
     },
   },
 
   watch: {
-      pageTitle(newTitle, oldTitle){
-        if(this.linkText === oldTitle){
-          this.linkText = newTitle
-        }
+    pageTitle(newTitle, oldTitle) {
+      if (this.linkText === oldTitle) {
+        this.linkText = newTitle;
       }
-    }
+    },
+  },
 };
 </script>
 
 <style scoped>
-#customCss{
+#customCss {
   border-top: 1px solid #e9e9e9;
   padding-top: 60px;
 }

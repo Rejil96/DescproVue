@@ -3,12 +3,16 @@
     <h1 class="main-heading" v-if="activePage !== 0">{{ page.title }}</h1>
     <p v-if="activePage !== 0">{{ page.content }}</p>
     <p class="h1" v-if="activePage === 0" id="formHeading">Create Pages</p>
-    <CreatePage v-if="activePage === 0" :pageCreated = "pageCreated" :activePage= "activePage"></CreatePage>
+    <CreatePage
+      v-if="activePage === 0"
+      :pageCreated="pageCreated"
+      :activePage="activePage"
+    ></CreatePage>
   </div>
 </template>
 
 <script>
-import CreatePage from './CreatePage.vue'
+import CreatePage from "./CreatePage.vue";
 
 export default {
   props: ["page", "pages", "activePage"],
@@ -18,11 +22,10 @@ export default {
 
   methods: {
     pageCreated(objectData) {
-      console.log(objectData)
-      this.pages.push(objectData)
-    }
-  }
-
+      console.log(objectData);
+      this.pages.push(objectData);
+    },
+  },
 };
 </script>
 
@@ -40,13 +43,12 @@ export default {
   font-size: 48px;
   font-weight: bolder;
   margin-bottom: 60px;
-  
 }
 
-#formHeading{
+#formHeading {
   margin-top: -240px !important;
   align-self: flex-start;
   margin-bottom: 20px;
-  margin-left: 310px;
+  margin-left: 16%;
 }
 </style>
