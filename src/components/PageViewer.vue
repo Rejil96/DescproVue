@@ -1,14 +1,28 @@
 <template>
-  <div class="conatiner" id="contentWrapper">
-    <h1 class="main-heading">{{ page.title }}</h1>
-    <p>{{ page.content }}</p>
-   
+  <div class="conatiner pt-3" id="contentWrapper">
+    <h1 class="main-heading" v-if="activePage !== 0">{{ page.title }}</h1>
+    <p v-if="activePage !== 0">{{ page.content }}</p>
+    <p class="h1" v-if="activePage === 0" id="formHeading">Create Page</p>
+    <CreatePage :pageCreated = "pageCreated" :activePage= "activePage"></CreatePage>
   </div>
 </template>
 
 <script>
+import CreatePage from './CreatePage.vue'
+
 export default {
-  props: ["page"],
+  props: ["page", "pages", "activePage"],
+  components: {
+    CreatePage,
+  },
+
+  methods: {
+    pageCreated(objectData) {
+      console.log(objectData)
+      this.pages.push(objectData)
+    }
+  }
+
 };
 </script>
 
@@ -20,12 +34,18 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
 }
 
 .main-heading {
   font-size: 48px;
   font-weight: bolder;
   margin-bottom: 60px;
+}
+
+#formHeading{
+  margin-top: -240px !important;
+  align-self: flex-start;
+  margin-bottom: 60px;
+  margin-left: 120px;
 }
 </style>

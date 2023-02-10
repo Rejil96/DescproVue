@@ -5,7 +5,7 @@
     :activePage="activePage"
     :navLinkClick="(index) => (activePage = index)"
   ></Navbar>
-  <PageViewer :page="pages[activePage]"></PageViewer>
+  <PageViewer :page="pages[activePage]" :pages="pages" :activePage="activePage"></PageViewer>
   </div>
 </template>
 
